@@ -4,14 +4,146 @@
         <title>Homepage</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <style>
-            h1, div {
+            h1, h2, h3 {
                 font-family: sans-serif;
                 text-align: center;
+                margin: 30px;
+            }
+            div {
+                margin: 20px;
+            }
+            div > div {
+                margin: 10px;
+            }
+            .title {
+                font-size: 20px;
+            }
+            .abstract {
+                font-family: 'Times New Roman', Times, serif;
             }
         </style>
     </head>
     <body>
-        <h1>My Homepage</h1>
-        <div>mostly containing irrelevant things</div>
+        <h1>Shichuan Deng's Homepage</h1>
+        <div style="text-align: center;">email: dsc15 at mails dot tsinghua dot edu dot cn</div>
+        <div>
+            <p class="title"><b>Constant approximation for fault-tolerant median problems via iterative rounding.</b> <i>Shichuan Deng.</i></p>
+            <div>Preprint, 2021. <button class="btn btn-info" onclick="toggleAbstract('faultMedian')">Abstract</button></div>
+            <div id="faultMedian" class="abstract" style="display: none;">
+                In this paper, we study the <i>fault-tolerant matroid median</i> and <i>fault-tolerant knapsack median</i> problems, 
+                wherein we are given facilities with opening costs, clients with connection costs, and a matroid or knapsack constraint 
+                on the facility-set. The goal is to open facilities that satisfy the constraint, assign $r\geq1$ distinct open facilities 
+                to each client and minimize the sum of facility-opening and client-connection costs. These two problems generalize many 
+                fundamental clustering and facility location problems, such as fault-tolerant $k$-median, fault-tolerant facility location, 
+                matroid median, knapsack median, etc.<br>        
+                We present a versatile iterative rounding framework and obtain a unifying constant factor approximation algorithm for the 
+                two aforementioned problems. The framework improves upon the LP rounding algorithm for fault-tolerant $k$-median by 
+                Hajiaghayi <i>et al.</i> [SODA 2014], where they cast an optimal solution to the natural relaxation as a solution to an auxiliary 
+                LP defined by two laminar families and obtain an integral solution. The technical challenges here are primarily due to the 
+                more general matroid and knapsack constraints which render the auxiliary LP non-integral. We devise an algorithmic framework 
+                that iteratively removes one of the laminar families and ultimately obtain an integral solution.
+            </div>
+        </div>
+        <div>
+            <p class="title"><b>Order $k$-median with outliers and fault-tolerance.</b> <i>Shichuan Deng, Qianfan Zhang.</i></p>
+            <div>Preprint, 2020. <button class="btn btn-info" onclick="toggleAbstract('orderedOutliers')">Abstract</button></div>
+            <div id="orderedOutliers" class="abstract" style="display: none;">
+                In this paper, we study <i>robust ordered $k$-median</i> and <i>fault-tolerant ordered $k$-median</i> as two novel 
+                generalizations of the <i>ordered $k$-median</i> problem. In ordered $k$-median, given a finite metric space $(X,d)$, 
+                we seek to open a set of $k$ facilities $S\subseteq X$ which induces a <i>service cost vector</i> $\vec{c}=\{d(j,S):j\in X\}$, 
+                and minimize the objective $w^\top\vec{c}^\downarrow$. Here $d(j,S)=\min_{i\in S}d(j,i)$ is the minimum distance between 
+                $j$ and open facilities in $S$, $w\in\mathbb{R}^{|X|}$ is a predefined non-increasing non-negative vector, and $\vec{c}^\downarrow$ 
+                is the non-increasingly sorted version of $\vec{c}$. The current best result for ordered $k$-median is a $(5+\epsilon)$-approximation 
+                [Chakrabarty and Swamy, STOC 2019].<br>
+	            We first consider robust ordered $k$-median, also known as ordered $k$-median with outliers, where the input consists 
+                of an ordered $k$-median instance and an additional parameter $m\in\mathbb{Z}_+$. The goal is to open $k$ facilities $S$, 
+                select $m$ clients $T\subseteq X$ and assign the nearest open facility to each client $j\in T$. In this case, the service 
+                cost vector is $\vec{c}=\{d(j,S):j\in T\}$, the vector $w$ is in $\mathbb{R}^m$, and the objective is $w^\top\vec{c}^\downarrow$. 
+                We introduce a novel yet simple objective function that enables linear analysis of the non-linear ordered objective, apply an 
+                iterative rounding framework [Krishnaswamy <i>et al.</i>, STOC 2018] and obtain a constant-factor approximate solution. We then 
+                devise the first constant-factor approximation algorithms for <i>ordered matroid median</i> and <i>ordered knapsack median}</i> 
+                using the same method.<br>
+	            We also consider the fault-tolerant ordered $k$-median problem, where besides the same input as standard ordered $k$-median, 
+                we are also given additional client <i>requirements</i> $\{r_j\in\mathbb{Z}_+:j\in X\}$ and need to assign $r_j$ distinct open 
+                facilities to each client $j\in X$. The service cost of $j$ is the sum of distances to its assigned facilities, and the objective 
+                is still $w^\top\vec{c}^\downarrow$. We obtain a constant-factor approximation algorithm using a novel LP relaxation with 
+                constraints created via a new sparsification technique.
+            </div>
+            </p>
+        </div>
+        <div>
+            <p class="title"><b>Approximation algorithms for clustering with dynamic points.</b> <i>Shichuan Deng, Jian Li, Yuval Rabani.</i></p>
+            <div>ESA 2020. <button class="btn btn-info" onclick="toggleAbstract('dynamicPoints')">Abstract</button></div>
+            <div id="dynamicPoints" class="abstract" style="display: none;">
+                In many classic clustering problems, we seek to sketch a massive data set of $n$ points
+                (a.k.a <i>clients</i>) in a metric space, by segmenting them into $k$ categories or clusters, 
+                each cluster represented concisely by a single point in the metric space (a.k.a. the cluster's 
+                <i>center</i> or its <i>facility</i>).
+                The goal is to find such a sketch that minimizes some objective that depends on the
+                distances between the clients and their respective facilities
+                (the objective is a.k.a. the <i>service cost</i>).
+                Two notable examples are the $k$-center/$k$-supplier problem where the objective is to
+                minimize the maximum distance from any client to its facility, and the $k$-median 
+                problem where the objective is to minimize the sum over all clients of the distance
+                from the client to its facility.<br>
+                
+                In practical applications of clustering, the data set may evolve over time, reflecting
+                an evolution of the underlying clustering model. Thus, in such applications, a good
+                clustering must simultaneously represent the temporal data set well, but also not
+                change too drastically between time steps. In this paper, we initiate the study of a 
+                dynamic version of clustering problems that aims to capture these considerations. In
+                this version there are $T$ time steps, and in each time step $t\in\{1,2,\dots,T\}$, the set of clients
+                needed to be clustered may change, and we can move the $k$ facilities 
+                between time steps. The general goal is to minimize certain combinations 
+                of the service cost and the
+                facility movement cost, or minimize one subject to some constraints on the other.
+                More specifically, we study two concrete problems in this framework:
+                the <i>Dynamic Ordered $k$-Median</i> and the <i>Dynamic $k$-Supplier</i> problem. 
+                Our technical contributions are as follows:
+                <ul>
+                    <li>We consider the Dynamic Ordered $k$-Median problem, where
+                    the objective is to minimize the weighted sum of ordered distances over all time steps, 
+                    plus the total cost of moving the facilities between time steps. We present one constant-factor 
+                    approximation algorithm for $T=2$ and another approximation algorithm for fixed $T\geq3$.
+                    </li>
+                    <li>We consider the Dynamic $k$-Supplier problem, where the objective is to minimize the maximum distance 
+                        from any client to its facility, subject to the constraint that between time steps the maximum distance 
+                        moved by any facility is no more than a given threshold. 
+                        When the number of time steps $T$ is 2, we present a simple constant 
+                        factor approximation algorithm and a bi-criteria constant factor approximation algorithm for the outlier 
+                        version, where some of the clients can be discarded. We also show that it is NP-hard to approximate the 
+                        problem with any factor for $T\geq3$.
+                    </li>
+                </ul>
+            </div>
+            </p>
+        </div>
+
+
+        <script>
+            function toggleAbstract(str) {
+                var x = document.getElementById(str);
+                if (x.style.display == "block") {
+                    x.style.display = "none";
+                }
+                else {
+                    x.style.display = "block";
+                }
+            }
+        </script>
+
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+              src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
     </body>
 </html>
