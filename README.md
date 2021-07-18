@@ -1,3 +1,3 @@
 ## Homepage
 
-> mostly irrelevant
+> mostly irrelevant things

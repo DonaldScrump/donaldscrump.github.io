@@ -1,3 +1,0 @@
-# Homepage
-
-> mostly irrelevant stuff
