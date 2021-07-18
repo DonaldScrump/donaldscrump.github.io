@@ -45,7 +45,7 @@
         </p>
         <div>
             <p class="title"><b>Constant approximation for fault-tolerant median problems via iterative rounding.</b> <i>Shichuan Deng.</i></p>
-            <div>Preprint, 2021. <button class="btn btn-info" onclick="toggleAbstract('faultMedian')">Abstract</button></div>
+            <div>Preprint, 2021. <button class="btn btn-outline-primary btn-sm" onclick="toggleAbstract('faultMedian')" id="faultMedianBtn">Abstract</button></div>
             <div id="faultMedian" class="abstract" style="display: none;">
                 In this paper, we study the <i>fault-tolerant matroid median</i> and <i>fault-tolerant knapsack median</i> problems, 
                 wherein we are given facilities with opening costs, clients with connection costs, and a matroid or knapsack constraint 
@@ -63,7 +63,7 @@
         </div>
         <div>
             <p class="title"><b>Order $k$-median with outliers and fault-tolerance.</b> <i>Shichuan Deng, Qianfan Zhang.</i></p>
-            <div>Preprint, 2020. <button class="btn btn-info" onclick="toggleAbstract('orderedOutliers')">Abstract</button></div>
+            <div>Preprint, 2020. <button class="btn btn-outline-primary btn-sm" onclick="toggleAbstract('orderedOutliers')" id="orderedOutliersBtn">Abstract</button></div>
             <div id="orderedOutliers" class="abstract" style="display: none;">
                 In this paper, we study <i>robust ordered $k$-median</i> and <i>fault-tolerant ordered $k$-median</i> as two novel 
                 generalizations of the <i>ordered $k$-median</i> problem. In ordered $k$-median, given a finite metric space $(X,d)$, 
@@ -90,7 +90,7 @@
         </div>
         <div>
             <p class="title"><b>Generalized load balancing and clustering problems with norm minimization.</b> <i>Shichuan Deng.</i></p>
-            <div>Preprint, 2020. <button class="btn btn-info" onclick="toggleAbstract('maxOfNorm')">Abstract</button></div>
+            <div>Preprint, 2020. <button class="btn btn-outline-primary btn-sm" onclick="toggleAbstract('maxOfNorm')" id="maxOfNormBtn">Abstract</button></div>
             <div id="maxOfNorm" class="abstract" style="display: none;">
                 In many fundamental combinatorial optimization problems, a feasible solution induces some real <i>cost vectors</i> as an 
                 intermediate result, and the optimization objective is a certain function of the vectors. For example, in the problem of 
@@ -114,7 +114,7 @@
         </div>
         <div>
             <p class="title"><b>Approximation algorithms for clustering with dynamic points.</b> <i>Shichuan Deng, Jian Li, Yuval Rabani.</i></p>
-            <div>ESA 2020. <button class="btn btn-info" onclick="toggleAbstract('dynamicPoints')">Abstract</button></div>
+            <div>ESA 2020. <button class="btn btn-outline-primary btn-sm" onclick="toggleAbstract('dynamicPoints')" id="dynamicPointsBtn">Abstract</button></div>
             <div id="dynamicPoints" class="abstract" style="display: none;">
                 In many classic clustering problems, we seek to sketch a massive data set of $n$ points
                 (a.k.a <i>clients</i>) in a metric space, by segmenting them into $k$ categories or clusters, 
@@ -169,6 +169,13 @@
                 }
                 else {
                     x.style.display = "block";
+                }
+                var y = document.getElementById(str+"Btn")
+                if (y.innerText == "Abstract") {
+                    y.innerText = "Hide";
+                }
+                else {
+                    y.innerText = "Abstract";
                 }
             }
         </script>
