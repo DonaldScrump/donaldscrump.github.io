@@ -89,6 +89,30 @@
             </p>
         </div>
         <div>
+            <p class="title"><b>Generalized load balancing and clustering problems with norm minimization.</b> <i>Shichuan Deng.</i></p>
+            <div>Preprint, 2020. <button class="btn btn-info" onclick="toggleAbstract('maxOfNorm')">Abstract</button></div>
+            <div id="maxOfNorm" class="abstract" style="display: none;">
+                In many fundamental combinatorial optimization problems, a feasible solution induces some real <i>cost vectors</i> as an 
+                intermediate result, and the optimization objective is a certain function of the vectors. For example, in the problem of 
+                <i>makespan minimization on unrelated parallel machines</i>, a feasible job assignment induces a vector containing the 
+                sizes of assigned jobs for each machine, and the goal is to minimize the $L_\infty$ norm of $L_1$ norms of the vectors. 
+                Another example is <i>fault-tolerant $k$-center</i>, where each client is connected to multiple open facilities, thus 
+                having a vector of distances to these facilities, and the goal is to minimize the $L_\infty$ norm of $L_\infty$ norms of 
+                these vectors.<br>
+                In this paper, we study the <i>maximum of norm</i> problem. Given an arbitrary symmetric monotone norm $f$, the objective 
+                is defined as the <i>maximum</i> ($L_\infty$ norm) <i>of $f$-norm</i> values of the induced cost vectors. This versatile 
+                formulation captures a wide variety of problems, including makespan minimization, fault-tolerant $k$-center and many others. 
+                We give concrete results for load balancing on unrelated parallel machines and clustering problems, including constant-factor 
+                approximation algorithms when $f$ belongs with a certain rich family of norms, and $O(\log n)$-approximations when $f$ is 
+                general and satisfies some mild assumptions.<br>    
+                We also consider the aforementioned problems in a generalized fairness setting. As a concrete example, the insight is to 
+                prevent a scheduling algorithm from assigning <i>too many</i> jobs consistently on any machine in a job-recurring scenario, 
+                and causing the machine's controller to fail. Our algorithm needs to stochastically output a feasible solution minimizing 
+                the objective function, and satisfy the given marginal fairness constraints.
+            </div>
+            </p>
+        </div>
+        <div>
             <p class="title"><b>Approximation algorithms for clustering with dynamic points.</b> <i>Shichuan Deng, Jian Li, Yuval Rabani.</i></p>
             <div>ESA 2020. <button class="btn btn-info" onclick="toggleAbstract('dynamicPoints')">Abstract</button></div>
             <div id="dynamicPoints" class="abstract" style="display: none;">
