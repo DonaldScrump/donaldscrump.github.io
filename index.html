@@ -4,42 +4,11 @@
         <title>Homepage</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        
-        <style>
-            h1, h2, h3 {
-                text-align: center;
-                margin-top: 20px;
-            }
-            .title {
-                font-size: 20px;
-            }
-            .abstract {
-                font-size: 18px;
-                font-family: 'Times New Roman', Times, serif;
-            }
-            .lead {
-                margin: 22px;
-                font-size: 24px;
-            }
-            hr {
-                border-top: 2px dotted black;
-                color: white;
-            }
-
-            hr.styled {
-                border: 0;
-                height: 2px;
-                background: black;
-                background-image: -webkit-linear-gradient(left, white, black, white);
-                background-image: -moz-linear-gradient(left, white, black, white);
-                background-image: -ms-linear-gradient(left, white, black, white);
-                background-image: -o-linear-gradient(left, white, black, white);
-            }
-        </style>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <h1>Shichuan Deng's Homepage</h1>
-        <div style="text-align: center;">dsc15 at mails dot tsinghua dot edu dot cn</div>
+        <div>dsc15 at mails dot tsinghua dot edu dot cn</div>
 
         <figure class="text-end" style="margin: 20px;">
             <blockquote class="blockquote">
@@ -50,16 +19,16 @@
             </figcaption>
         </figure>
 
-        <hr class="styled">
+        <hr class="styled_hr">
 
         <p class="lead">
             A list of some works that I am involved in.
         </p>
-        <ul class="list-group" style="margin-left: 20px; margin-right: 20px;">
+        <ul class="list-group">
             <li class="list-group-item"><div>
                 <p class="title"><b>Constant approximation for fault-tolerant median problems via iterative rounding.</b> <i>Shichuan Deng.</i></p>
                 <div>Preprint, 2021. <button class="btn btn-outline-primary btn-sm" onclick="toggleAbstract('faultMedian')" id="faultMedianBtn">Abstract</button></div>
-                <div id="faultMedian" class="abstract" style="display: none;">
+                <div id="faultMedian" class="abstract">
                     In this paper, we study the <i>fault-tolerant matroid median</i> and <i>fault-tolerant knapsack median</i> problems, 
                     wherein we are given facilities with opening costs, clients with connection costs, and a matroid or knapsack constraint 
                     on the facility-set. The goal is to open facilities that satisfy the constraint, assign $r\geq1$ distinct open facilities 
@@ -77,7 +46,7 @@
             <li class="list-group-item"><div>
                 <p class="title"><b>Ordered $k$-median with outliers and fault-tolerance.</b> <i>Shichuan Deng, Qianfan Zhang.</i></p>
                 <div>Preprint, 2020. <button class="btn btn-outline-primary btn-sm" onclick="toggleAbstract('orderedOutliers')" id="orderedOutliersBtn">Abstract</button></div>
-                <div id="orderedOutliers" class="abstract" style="display: none;">
+                <div id="orderedOutliers" class="abstract">
                     In this paper, we study <i>robust ordered $k$-median</i> and <i>fault-tolerant ordered $k$-median</i> as two novel 
                     generalizations of the <i>ordered $k$-median</i> problem. In ordered $k$-median, given a finite metric space $(X,d)$, 
                     we seek to open a set of $k$ facilities $S\subseteq X$ which induces a <i>service cost vector</i> $\vec{c}=\{d(j,S):j\in X\}$, 
@@ -103,7 +72,7 @@
             <li class="list-group-item"><div>
                 <p class="title"><b>Generalized load balancing and clustering problems with norm minimization.</b> <i>Shichuan Deng.</i></p>
                 <div>Preprint, 2020. <button class="btn btn-outline-primary btn-sm" onclick="toggleAbstract('maxOfNorm')" id="maxOfNormBtn">Abstract</button></div>
-                <div id="maxOfNorm" class="abstract" style="display: none;">
+                <div id="maxOfNorm" class="abstract">
                     In many fundamental combinatorial optimization problems, a feasible solution induces some real <i>cost vectors</i> as an 
                     intermediate result, and the optimization objective is a certain function of the vectors. For example, in the problem of 
                     <i>makespan minimization on unrelated parallel machines</i>, a feasible job assignment induces a vector containing the 
@@ -126,7 +95,7 @@
             <li class="list-group-item"><div>
                 <p class="title"><b>Approximation algorithms for clustering with dynamic points.</b> <i>Shichuan Deng, Jian Li, Yuval Rabani.</i></p>
                 <div>ESA 2020. <button class="btn btn-outline-primary btn-sm" onclick="toggleAbstract('dynamicPoints')" id="dynamicPointsBtn">Abstract</button></div>
-                <div id="dynamicPoints" class="abstract" style="display: none;">
+                <div id="dynamicPoints" class="abstract">
                     In many classic clustering problems, we seek to sketch a massive data set of $n$ points
                     (a.k.a <i>clients</i>) in a metric space, by segmenting them into $k$ categories or clusters, 
                     each cluster represented concisely by a single point in the metric space (a.k.a. the cluster's 

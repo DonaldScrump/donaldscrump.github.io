@@ -1,0 +1,41 @@
+h1, h2, h3 {
+    text-align: center;
+    margin-top: 20px;
+}
+.title {
+    font-size: 20px;
+}
+
+.abstract {
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    display: none;
+}
+.lead {
+    margin: 22px;
+    font-size: 24px;
+}
+
+hr {
+    border-top: 2px dotted black;
+    color: white;
+}
+
+.styled_hr {
+    border: 0;
+    height: 2px;
+    background: black;
+    background-image: -webkit-linear-gradient(left, white, black, white);
+    background-image: -moz-linear-gradient(left, white, black, white);
+    background-image: -ms-linear-gradient(left, white, black, white);
+    background-image: -o-linear-gradient(left, white, black, white);
+}
+
+body > div {
+    text-align: center;
+}
+
+ul.list-group {
+    margin-left: 20px; 
+    margin-right: 20px;
+}
