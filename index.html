@@ -9,19 +9,17 @@
     </head>
     <body>
         <h1>Shichuan Deng's Homepage</h1>
-        <div>dsc15 at mails dot tsinghua dot edu dot cn</div>
-
+        <div class="emailAddress">dsc15 at mails dot tsinghua dot edu dot cn</div>
         <hr class="styled_hr">
 
         <p class="lead">
             A list of some works that I am involved in.
         </p>
-
         <ul id="papers" class="list-group">
             <paper
             v-for="paper in paperList"
-            v-bind:paper="paper"
-            v-bind:key="paper.id"
+            :paper="paper"
+            :key="paper.id"
             ></paper>
         </ul>
 
@@ -44,7 +42,7 @@
                 <p>Hold on, if love is the answer you're home.</p>
             </blockquote>
             <figcaption class="blockquote-footer">
-                Daft Punk. "Touch." <cite title="Source Title">Random Access Memories.</cite> Columbia, 2013.
+                Daft Punk. "Touch." <cite title="Random Access Memories">Random Access Memories.</cite> Columbia, 2013.
             </figcaption>
         </figure>
 
@@ -63,7 +61,7 @@
                             matroid median, knapsack median, etc.<br> \
                             We present a versatile iterative rounding framework and obtain a unifying constant factor approximation algorithm for the \
                             two aforementioned problems. The framework improves upon the LP rounding algorithm for fault-tolerant $k$-median by \
-                            Hajiaghayi <i>et al.</i> [SODA 2014], where they cast an optimal solution to the natural relaxation as a solution to an auxiliary \
+                            Hajiaghayi <i>et&nbsp;al.</i> [SODA 2014], where they cast an optimal solution to the natural relaxation as a solution to an auxiliary \
                             LP defined by two laminar families and obtain an integral solution. The technical challenges here are primarily due to the \
                             more general matroid and knapsack constraints which render the auxiliary LP non-integral. We devise an algorithmic framework \
                             that iteratively removes one of the laminar families and ultimately obtain an integral solution."},
@@ -81,7 +79,7 @@
                             select $m$ clients $T\\subseteq X$ and assign the nearest open facility to each client $j\\in T$. In this case, the service \
                             cost vector is $\\vec{c}=\\{d(j,S):j\\in T\\}$, the vector $w$ is in $\\mathbb{R}^m$, and the objective is $w^\\top\\vec{c}^\\downarrow$. \
                             We introduce a novel yet simple objective function that enables linear analysis of the non-linear ordered objective, apply an \
-                            iterative rounding framework [Krishnaswamy <i>et al.</i>, STOC 2018] and obtain a constant-factor approximate solution. We then \
+                            iterative rounding framework [Krishnaswamy <i>et&nbsp;al.</i>, STOC 2018] and obtain a constant-factor approximate solution. We then \
                             devise the first constant-factor approximation algorithms for <i>ordered matroid median</i> and <i>ordered knapsack median</i> \
                             using the same method.<br> \
                             We also consider the fault-tolerant ordered $k$-median problem, where besides the same input as standard ordered $k$-median, \
@@ -172,13 +170,19 @@
                         }
                     }
                 },
-                template: `<li class="list-group-item"><div>
-                <p class="title">
-                <b>{{paper.title}}</b>&nbsp
-                <i>{{paper.authors}}</i></p>
-                <div>{{paper.conference}}&nbsp
-                <button class="btn btn-outline-primary btn-sm" @click="toggleName" :id="paper.id+'Btn'">{{this.name}}</button></div>
-                <div :id="paper.id" class="abstract" v-html="paper.abstract"></div></div></li>`
+                template: `<li class="list-group-item">
+                        <div class="titleField">
+                            <span class="paperTitle">
+                                {{paper.title}}</span>&nbsp;
+                            <span class="paperAuthors">
+                                {{paper.authors}}</span></div>
+                        <div class="abstractField">
+                            <span class="paperConference">
+                                {{paper.conference}}</span>&nbsp;
+                            <button class="btn btn-outline-primary btn-sm" @click="toggleName">{{this.name}}</button>
+                        </div>
+                        <div :id="paper.id" class="paperAbstract" v-html="paper.abstract"></div>
+                    </li>`
             })
             app.mount("#papers")
         </script>

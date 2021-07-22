@@ -2,18 +2,40 @@ h1, h2, h3 {
     text-align: center;
     margin-top: 20px;
 }
-.title {
+
+.emailAddress {
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.titleField {
+    margin-bottom: 5px;
+}
+
+.paperTitle {
+    font-weight: bold;
     font-size: 20px;
 }
 
-.abstract {
+.paperAuthors {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.paperConference {
+    font-size: 16px;
+}
+
+.paperAbstract {
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
     display: none;
 }
+
 .lead {
     margin: 20px;
-    font-size: 22px;
+    font-size: 24px;
 }
 
 hr {
@@ -29,10 +51,6 @@ hr {
     background-image: -moz-linear-gradient(left, white, black, white);
     background-image: -ms-linear-gradient(left, white, black, white);
     background-image: -o-linear-gradient(left, white, black, white);
-}
-
-body > div {
-    text-align: center;
 }
 
 ul.list-group {
