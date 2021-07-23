@@ -5,20 +5,20 @@
         <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <!--script src="https://unpkg.com/browse/vue@3.1.5/dist/vue.runtime.global.prod.js"></script-->
-        <script src="https://unpkg.com/vue@next"></script>
-        <script src="https://unpkg.com/lodash@4.16.0"></script>
+        <script src="https://unpkg.com/vue@3.1.5/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
         <link href="style.css" rel="stylesheet">
         <link href="favicon.png" rel="icon">
     </head>
     <body>
         <div id="navBar" class="fixed" style="background-color: white;">
-            <div class="pageTitle" :style="{ fontSize: titleSize+'px' }">
+            <div class="pageTitle" :style="titleStyle">
                 Shichuan Deng's Homepage
             </div>
-            <div class="emailAddress" :style="{ fontSize: emailSize+'px', opacity: opacity, display: emailVisible, height: emailHeight+'px' }">
+            <div class="emailAddress" :style="emailStyle">
                 dsc15 at mails dot tsinghua dot edu dot cn
             </div>
-            <hr class="styled_hr" :style="{ marginTop: margin+'px', marginBottom: margin+'px' }">
+            <hr class="styled_hr" :style="hrStyle">
         </div>
         <div style="height:100px">&nbsp;</div>
 
@@ -200,12 +200,19 @@
             const apph = Vue.createApp({
                 data() {
                     return {
-                        titleSize: 30,
-                        emailSize: 16,
-                        opacity: 1,
-                        margin: 10,
+                        titleSizeUpper: 32,
+                        titleSizeLower: 16,
+                        emailSizeUpper: 16,
+                        emailSizeLower: 1,
+                        opacityUpper: 1,
+                        opacityLower: 0,
+                        marginUpper: 8,
+                        marginTopLower: 4,
+                        marginBottomLower: 0,
                         emailVisible: "block",
-                        emailHeight: 24
+                        emailHeightUpper: 24,
+                        emailHeightLower: 0,
+                        lambda: 0
                     }
                 },
                 created () {
@@ -216,20 +223,31 @@
                     window.removeEventListener('DOMContentLoaded', this.handleScroll);
                     window.removeEventListener('scroll', this.handleScroll);
                 },
+                computed: {
+                    titleStyle() {
+                        return {
+                            'font-size': ((1-this.lambda)*this.titleSizeUpper+this.lambda*this.titleSizeLower) +'px'
+                        }
+                    },
+                    emailStyle() {
+                        return {
+                            'font-size': ((1-this.lambda)*this.emailSizeUpper+this.lambda*this.emailSizeLower) + 'px',
+                            opacity: (1-this.lambda)*this.opacityUpper+this.lambda*this.opacityLower,
+                            height: ((1-this.lambda)*this.emailHeightUpper+this.lambda*this.emailHeightLower) + 'px',
+                            display: this.lambda > 0.95 ? 'none' : 'block'
+                        }
+                    },
+                    hrStyle() {
+                        return {
+                            'margin-top': ((1-this.lambda)*this.marginUpper+this.lambda*this.marginTopLower) + 'px',
+                            'margin-bottom': ((1-this.lambda)*this.marginUpper+this.lambda*this.marginBottomLower) + 'px',
+                        }
+                    }
+                },
                 methods: {
                     handleScroll: _.throttle(function(event) {
-                        let h = Math.min(Math.max(window.scrollY-70, 0), 40)
-                        this.titleSize = Math.ceil(30-3*h/8)
-                        this.emailSize = Math.ceil(16-2*h/5)
-                        this.opacity = (40-h)/40
-                        this.margin = 5+Math.ceil((40-h)/8)
-                        this.emailHeight = Math.ceil(0.6*(40-h))
-                        if (h>39) {
-                            this.emailVisible = "none"
-                        } else {
-                            this.emailVisible = "block"
-                        }
-                    }, 10)
+                        this.lambda = Math.min(Math.max(window.scrollY-72, 0), 40)/40
+                    })
                 }
             })
             apph.mount("#navBar")
