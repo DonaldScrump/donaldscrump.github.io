@@ -4,14 +4,22 @@
         <title>Shichuan Deng's Homepage</title>
         <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!--script src="https://unpkg.com/browse/vue@3.1.5/dist/vue.runtime.global.prod.js"></script-->
         <script src="https://unpkg.com/vue@next"></script>
         <link href="style.css" rel="stylesheet">
         <link href="favicon.png" rel="icon">
     </head>
     <body>
-        <h1>Shichuan Deng's Homepage</h1>
-        <div class="emailAddress">dsc15 at mails dot tsinghua dot edu dot cn</div>
-        <hr class="styled_hr">
+        <div id="navBar" class="fixed" style="background-color: white;">
+            <div class="pageTitle" :style="{ fontSize: titleSize+'px' }">
+                Shichuan Deng's Homepage
+            </div>
+            <div class="emailAddress" :style="{ fontSize: emailSize+'px', opacity: opacity, display: emailVisible, height: emailHeight+'px' }">
+                dsc15 at mails dot tsinghua dot edu dot cn
+            </div>
+            <hr class="styled_hr" :style="{ marginTop: margin+'px', marginBottom: margin+'px' }">
+        </div>
+        <div style="height:100px">&nbsp;</div>
 
         <p class="lead">
             A list of some works that I am involved in.
@@ -160,14 +168,14 @@
                 },
                 methods: {
                     toggleName() {
-                        var x = document.querySelector('#'+this.paper.id)
+                        var x = document.querySelector(`#${this.paper.id}`)
                         if (this.name == "Abstract") {
                             this.name = "Hide"
-                            x.style.display = "block"
-                        }
-                        else {
-                            this.name = "Abstract"
-                            x.style.display = "none"
+                            x.style.display='block'
+                            x.style.animationPlayState = "running"
+                        } else {
+                            this.name="Abstract"
+                            x.style.display="none"
                         }
                     }
                 },
@@ -182,10 +190,48 @@
                                 {{paper.conference}}</span>&nbsp;
                             <button class="btn btn-outline-primary btn-sm" @click="toggleName">{{this.name}}</button>
                         </div>
-                        <div :id="paper.id" class="paperAbstract" v-html="paper.abstract"></div>
+                        <div :id="paper.id" class="paperAbstract" 
+                        v-html="paper.abstract"></div>
                     </li>`
             })
             app.mount("#papers")
+
+            const apph = Vue.createApp({
+                data() {
+                    return {
+                        titleSize: 30,
+                        emailSize: 16,
+                        opacity: 1,
+                        margin: 10,
+                        emailVisible: "block",
+                        emailHeight: 24
+                    }
+                },
+                created () {
+                    window.addEventListener('DOMContentLoaded', this.handleScroll);
+                    window.addEventListener('scroll', this.handleScroll);
+                },
+                destroyed () {
+                    window.removeEventListener('DOMContentLoaded', this.handleScroll);
+                    window.removeEventListener('scroll', this.handleScroll);
+                },
+                methods: {
+                    handleScroll(event) {
+                        let h = Math.min(Math.max(window.scrollY-70, 0), 40)
+                        this.titleSize = Math.ceil(30-3*h/8)
+                        this.emailSize = Math.ceil(16-2*h/5)
+                        this.opacity = (40-h)/40
+                        this.margin = 5+Math.ceil((40-h)/8)
+                        this.emailHeight = Math.ceil(0.6*(40-h))
+                        if (h>39) {
+                            this.emailVisible = "none"
+                        } else {
+                            this.emailVisible = "block"
+                        }
+                    }
+                }
+            })
+            apph.mount("#navBar")
         </script>
 
         <script>

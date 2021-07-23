@@ -1,11 +1,14 @@
-h1, h2, h3 {
+.fixed {
     text-align: center;
-    margin-top: 20px;
+    padding-top: 10px;
+    position: fixed;
+    top: 0;
+    left:0;
+    right:0;
+    z-index: 9999;
 }
 
 .emailAddress {
-    text-align: center;
-    font-size: 16px;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -27,20 +30,45 @@ h1, h2, h3 {
     font-size: 16px;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 .paperAbstract {
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
     display: none;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-play-state: paused;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.paperAbstractSilhouette {
+    display: none;
+    animation-name: fadeOut;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-play-state: paused;
 }
 
 .lead {
     margin: 20px;
     font-size: 24px;
-}
-
-hr {
-    border-top: 2px dotted black;
-    color: white;
 }
 
 .styled_hr {
