@@ -231,7 +231,8 @@
                     },
                     emailStyle() {
                         return {
-                            'font-size': ((1-this.lambda)*this.emailSizeUpper+this.lambda*this.emailSizeLower) + 'px',
+                            /*'font-size': ((1-this.lambda)*this.emailSizeUpper+this.lambda*this.emailSizeLower) + 'px',*/
+                            'font-size': this.emailSizeUpper,
                             opacity: (1-this.lambda)*this.opacityUpper+this.lambda*this.opacityLower,
                             height: ((1-this.lambda)*this.emailHeightUpper+this.lambda*this.emailHeightLower) + 'px',
                             display: this.lambda > 0.95 ? 'none' : 'block'
@@ -246,7 +247,7 @@
                 },
                 methods: {
                     handleScroll: _.throttle(function(event) {
-                        this.lambda = Math.min(Math.max(window.scrollY-72, 0), 40)/40
+                        this.lambda = Math.min(Math.max(window.scrollY-79, 0), 40)/40
                     })
                 }
             })
