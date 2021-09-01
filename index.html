@@ -113,6 +113,28 @@
             const appPaper = Vue.createApp({
                 data() {
                     return { paperList: [
+                        {title: "Simultaneous approximation for ordered $k$-median",
+                        authors: "Shichuan Deng", conference: "Manuscript, 2021", paperID: "simultaneousOrdered",
+                        abstract: "In this paper, we study simultaneous algorithms for ordered $k$-median, which \
+                            generalizes many well-studied problems like $k$-center, $k$-median, $k$-facility $l$-centrum. \
+                            Given a finite metric space containing all clients and facilities, and a set $W$ of \
+                            <i>non-increasing non-negative vectors</i>, our goal is to select $k$ facilities that are a \
+                            good solution for any evaluating criterion corresponding to some vector in $W$. Specifically, \
+                            for each vector $w\\in W$ and $k$ chosen facilities $\\mathrm{SOL}$, the so-called <i>ordered objective</i> \
+                            $\\mathrm{SOL}(w)$ is the inner product of $w$ and vector of distances from each client to its nearest \
+                            chosen facility, which is sorted in non-increasing order. We aim for low <i>regret</i>, defined as \
+                            the maximum difference over all $w\\in W$ between the solution's ordered objective $\\mathrm{SOL}(w)$ \
+                            and the optimal ordered objective for $w$, denoted by $\\mathrm{OPT}(w)$. Let $\\mathrm{MR}$ be the \
+                            minimum regret of all possible solutions, and a bi-criteria simultaneous $(\\alpha,\\beta)$-approximation \
+                            algorithm should produce a solution $\\mathrm{SOL}$ s.t. $\\mathrm{SOL}(w)\\leq\\alpha\\cdot \\mathrm{OPT}(w)+\\beta\\cdot\\mathrm{MR}$ \
+                            for each $w$. <br> Our main results are a bi-criteria simultaneous $(O(1),O(1))$-approximation algorithm for ordered \
+                            $k$-median, and a bi-criteria simultaneous approximation for the more general problem where the \
+                            ordered objectives are replaced by symmetric monotone norms. These results are obtained via \
+                            straightforward LP relaxations, and the crucial rounding procedures are built on the oblivious \
+                            rounding techniques and symmetric monotone norm characterizations [Chakrabarty and Swamy, STOC&nbsp;2019]. \
+                            It can be shown that in such bi-criteria simultaneous approximations, $\\alpha$ is bounded away \
+                            from 1, and $\\beta$ is bounded away from 0 whenever $\\alpha=O(1)$ [Kumar and Kleinberg, SICOMP&nbsp;2006], \
+                            thus an $(O(1),O(1))$-approximation is, in a sense, the strongest type of guarantee we can hope for.",},
                         {title: "Constant approximation for fault-tolerant median problems via iterative rounding.",
                         authors: "Shichuan Deng", conference: "Preprint, 2021", paperID: "faultMedian",
                         abstract: "In this paper, we study the <i>fault-tolerant matroid median</i> and <i>fault-tolerant knapsack median</i> problems, \
@@ -123,7 +145,7 @@
                             matroid median, knapsack median, etc.<br> \
                             We present a versatile iterative rounding framework and obtain a unifying constant factor approximation algorithm for the \
                             two aforementioned problems. The framework improves upon the LP rounding algorithm for fault-tolerant $k$-median by \
-                            Hajiaghayi <i>et&nbsp;al.</i> [SODA 2014], where they cast an optimal solution to the natural relaxation as a solution to an auxiliary \
+                            Hajiaghayi&nbsp;<i>et&nbsp;al.</i> [SODA&nbsp;2014], where they cast an optimal solution to the natural relaxation as a solution to an auxiliary \
                             LP defined by two laminar families and obtain an integral solution. The technical challenges here are primarily due to the \
                             more general matroid and knapsack constraints which render the auxiliary LP non-integral. We devise an algorithmic framework \
                             that iteratively removes one of the laminar families and ultimately obtain an integral solution.",},
@@ -135,13 +157,13 @@
                             and minimize the objective $w^\\top\\vec{c}^\\downarrow$. Here $d(j,S)=\\min_{i\\in S}d(j,i)$ is the minimum distance between \
                             $j$ and open facilities in $S$, $w\\in\\mathbb{R}^{|X|}$ is a predefined non-increasing non-negative vector, and $\\vec{c}^\\downarrow$ \
                             is the non-increasingly sorted version of $\\vec{c}$. The current best result for ordered $k$-median is a $(5+\\epsilon)$-approximation \
-                            [Chakrabarty and Swamy, STOC 2019].<br> \
+                            [Chakrabarty and Swamy, STOC&nbsp;2019].<br> \
                             We first consider robust ordered $k$-median, also known as ordered $k$-median with outliers, where the input consists \
                             of an ordered $k$-median instance and an additional parameter $m\\in\\mathbb{Z}_+$. The goal is to open $k$ facilities $S$, \
                             select $m$ clients $T\\subseteq X$ and assign the nearest open facility to each client $j\\in T$. In this case, the service \
                             cost vector is $\\vec{c}=\\{d(j,S):j\\in T\\}$, the vector $w$ is in $\\mathbb{R}^m$, and the objective is $w^\\top\\vec{c}^\\downarrow$. \
                             We introduce a novel yet simple objective function that enables linear analysis of the non-linear ordered objective, apply an \
-                            iterative rounding framework [Krishnaswamy <i>et&nbsp;al.</i>, STOC 2018] and obtain a constant-factor approximate solution. We then \
+                            iterative rounding framework [Krishnaswamy&nbsp;<i>et&nbsp;al.</i>, STOC&nbsp;2018] and obtain a constant-factor approximate solution. We then \
                             devise the first constant-factor approximation algorithms for <i>ordered matroid median</i> and <i>ordered knapsack median</i> \
                             using the same method.<br> \
                             We also consider the fault-tolerant ordered $k$-median problem, where besides the same input as standard ordered $k$-median, \
