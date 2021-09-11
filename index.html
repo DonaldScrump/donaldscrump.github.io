@@ -138,18 +138,20 @@
                             <i>non-increasing non-negative vectors</i>, our goal is to select $k$ facilities that are a \
                             good solution for any evaluating criterion corresponding to some vector in $W$. Specifically, \
                             for each vector $w\\in W$ and $k$ chosen facilities $\\mathrm{SOL}$, the so-called <i>ordered objective</i> \
-                            $\\mathrm{SOL}(w)$ is the inner product of $w$ and vector of distances from each client to its nearest \
-                            chosen facility, which is sorted in non-increasing order. We aim for low <i>regret</i>, defined as \
-                            the maximum difference over all $w\\in W$ between the solution's ordered objective $\\mathrm{SOL}(w)$ \
+                            $\\mathrm{COST}(w;\\mathrm{SOL})$ is the inner product of $w$ and vector of distances from each \
+                            client to its nearest facility in $\\mathrm{SOL}$, sorted in non-increasing order. \
+                            We aim for low <i>regret</i>, defined as \
+                            the maximum difference over all $w\\in W$ between the solution's objective $\\mathrm{COST}(w;\\mathrm{SOL})$ \
                             and the optimal ordered objective for $w$, denoted by $\\mathrm{OPT}(w)$. Let $\\mathrm{MR}$ be the \
-                            minimum regret of all possible solutions, and a bi-criteria simultaneous $(\\alpha,\\beta)$-approximation \
-                            algorithm should produce a solution $\\mathrm{SOL}$ s.t. $\\mathrm{SOL}(w)\\leq\\alpha\\cdot \\mathrm{OPT}(w)+\\beta\\cdot\\mathrm{MR}$ \
+                            minimum regret obtainable, and a bi-criteria simultaneous $(\\alpha,\\beta)$-approximation \
+                            algorithm should output a solution that satisfies \
+                            $\\mathrm{COST}(w;\\mathrm{SOL})\\leq\\alpha\\cdot \\mathrm{OPT}(w)+\\beta\\cdot\\mathrm{MR}$ \
                             for each $w$. <br> Our main results are a bi-criteria simultaneous $(O(1),O(1))$-approximation algorithm for ordered \
                             $k$-median, and a bi-criteria simultaneous approximation for the more general problem where the \
                             ordered objectives are replaced by symmetric monotone norms. These results are obtained via \
                             straightforward LP relaxations, and the crucial rounding procedures are built on the oblivious \
                             rounding techniques and symmetric monotone norm characterizations [Chakrabarty and Swamy, STOC&nbsp;2019]. \
-                            It can be shown that in such bi-criteria simultaneous approximations, $\\alpha$ is bounded away \
+                            We observe that in such bi-criteria simultaneous approximations, $\\alpha$ is bounded away \
                             from 1, and $\\beta$ is bounded away from 0 whenever $\\alpha=O(1)$ [Kumar and Kleinberg, SICOMP&nbsp;2006], \
                             thus an $(O(1),O(1))$-approximation is, in a sense, the strongest type of guarantee we can hope for.",},
                         {title: "Constant approximation for fault-tolerant median problems via iterative rounding.",
