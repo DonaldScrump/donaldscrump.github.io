@@ -113,8 +113,33 @@
             const appPaper = Vue.createApp({
                 data() {
                     return { paperList: [
-                        {title: "On clustering with discounts.",
-                        authors: "Shichuan Deng", conference: "Manuscript, 2021", paperID: "discountedMedian",
+                        {
+                            title: "Generalized Unrelated Machine Scheduling Problem",
+                            authors: "Shichuan Deng, Jian Li, Yuval Rabani", conference: "Preprint, 2022", paperID: "glb",
+                            abstract: "We study the generalized load-balancing (GLB) problem, where we are given \$n\$ \
+                                        jobs, each of which needs to be assigned to one of \$m\$ unrelated machines with \
+                                        processing times $\\{p_{ij}\\}$. Under a job assignment $\\sigma$, the load of \
+                                        each machine $i$ is $\\psi_i(\\mathbf{p}_{i}[\\sigma])$ where \
+                                        $\\psi_i:\\mathbb{R}^n\\rightarrow\\mathbb{R}_{\\geq0}$ is a symmetric monotone norm \
+                                        and $\\mathbf{p}_{i}[\\sigma]$ is the $n$-dimensional vector $\\{p_{ij}\\cdot \
+                                        \\mathbf{1}[\\sigma(j)=i]\\}_{j\\in [n]}$. Our goal is to minimize the generalized \
+                                        makespan $\\phi(\\mathsf{load}(\\sigma))$, where \
+                                        $\\phi:\\mathbb{R}^m\\rightarrow\\mathbb{R}_{\\geq0}$ is another symmetric monotone \
+                                        norm and $\\mathsf{load}(\\sigma)$ is the $m$-dimensional machine load vector. \
+                                        This problem significantly generalizes many classic optimization problems, \
+                                        e.g., makespan minimization, set cover, minimum-norm load-balancing, etc.<br> \
+                                        We obtain a polynomial time randomized algorithm that achieves an \
+                                        approximation factor of $O(\\log n)$, matching the lower bound of set cover up \
+                                        to constant factor. We achieve this by rounding a novel configuration LP \
+                                        relaxation with exponential number of variables. To approximately solve the \
+                                        configuration LP, we design an approximate separation oracle for its dual \
+                                        program. In particular, the separation oracle can be reduced to the norm \
+                                        minimization with a linear constraint (NormLin) problem and we devise a \
+                                        polynomial time approximation scheme (PTAS) for it, which may be of independent \
+                                        interest.",
+                        },
+                        {title: "On clustering with discounts",
+                        authors: "Shichuan Deng", conference: "Preprint, 2021", paperID: "discountedMedian",
                         abstract: "We study the $k$-median with discounts problem, wherein we are given clients with non-negative discounts \
                             and seek to open at most $k$ facilities. The goal is to minimize the sum of distances from each client to its \
                             nearest open facility which is discounted by its own discount value, with minimum contribution being zero. We \
@@ -123,7 +148,7 @@
                             Ganesh&nbsp;<i>et&nbsp;al.</i>, ICALP'21].\
                             We also provide bi-criteria constant approximation guarantee for the matroid and knapsack versions of median \
                             clustering with discounts."},
-                        {title: "Constant approximation for fault-tolerant median problems via iterative rounding.",
+                        {title: "Constant approximation for fault-tolerant median problems via iterative rounding",
                         authors: "Shichuan Deng", conference: "Manuscript, 2021", paperID: "faultMedian",
                         abstract: "In this paper, we study the <i>fault-tolerant matroid median</i> and <i>fault-tolerant knapsack median</i> problems, \
                             wherein we are given facilities with opening costs, clients with connection costs, and a matroid or knapsack constraint \
@@ -137,7 +162,7 @@
                             LP defined by two laminar families and obtain an integral solution. The technical challenges here are primarily due to the \
                             more general matroid and knapsack constraints which render the auxiliary LP non-integral. We devise an algorithmic framework \
                             that iteratively removes one of the laminar families and ultimately obtain an integral solution.",},
-                        {title: "Ordered $k$-median with outliers and fault-tolerance.",
+                        {title: "Ordered $k$-median with outliers and fault-tolerance",
                         authors: "Shichuan Deng, Qianfan Zhang", conference: "Preprint, 2020", paperID: "orderedOutliers",
                         abstract: "In this paper, we study <i>robust ordered $k$-median</i> and <i>fault-tolerant ordered $k$-median</i> as two novel \
                             generalizations of the <i>ordered $k$-median</i> problem. In ordered $k$-median, given a finite metric space $(X,d)$, \
@@ -159,7 +184,7 @@
                             facilities to each client $j\\in X$. The service cost of $j$ is the sum of distances to its assigned facilities, and the objective \
                             is still $w^\\top\\vec{c}^\\downarrow$. We obtain a constant-factor approximation algorithm using a novel LP relaxation with \
                             constraints created via a new sparsification technique.",},
-                        {title: "Generalized load balancing and clustering problems with norm minimization.",
+                        {title: "Generalized load balancing and clustering problems with norm minimization",
                         authors: "Shichuan Deng", conference: "Preprint, 2020", paperID: "maximumNorm",
                         abstract: "In many fundamental combinatorial optimization problems, a feasible solution induces some real <i>cost vectors</i> as an \
                             intermediate result, and the optimization objective is a certain function of the vectors. For example, in the problem of \
@@ -178,8 +203,8 @@
                             prevent a scheduling algorithm from assigning <i>too many</i> jobs consistently on any machine in a job-recurring scenario, \
                             and causing the machine's controller to fail. Our algorithm needs to stochastically output a feasible solution minimizing \
                             the objective function, and satisfy the given marginal fairness constraints.",},
-                        {title: "Approximation algorithms for clustering with dynamic points.",
-                        authors: "Shichuan Deng, Jian Li, Yuval Rabani.", conference: "ESA 2020", paperID: "dynamicClustering",
+                        {title: "Approximation algorithms for clustering with dynamic points",
+                        authors: "Shichuan Deng, Jian Li, Yuval Rabani", conference: "ESA 2020", paperID: "dynamicClustering",
                         abstract: "In many classic clustering problems, we seek to sketch a massive data set of $n$ points \
                             (a.k.a <i>clients</i>) in a metric space, by segmenting them into $k$ categories or clusters, \
                             each cluster represented concisely by a single point in the metric space (a.k.a. the cluster's \
